@@ -6,7 +6,7 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode : ["class", "class"],
+  darkMode : "class",
   theme: {
   	extend: {
   		colors: {
@@ -82,5 +82,11 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+	require("tailwindcss-animate"),
+	function ({ addVariant }: { addVariant: (name: string, rule: string) => void }) {
+		addVariant('child' , '& > *');
+		addVariant('child-hover' , '& > *:hover');
+	  }
+  ],
 } satisfies Config;
