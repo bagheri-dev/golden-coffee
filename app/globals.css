@@ -102,3 +102,9 @@
     @apply bg-background text-foreground;
   }
 }
+@layer  utilities {
+  .ltr-text {
+    direction: ltr;
+    text-align: left;
+  }
+}
